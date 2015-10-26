@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.voted {
+  border: 3px solid red;
+}

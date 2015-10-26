@@ -1,3 +1,8 @@
-<% @question.choices.each do |choice| %>
-  <h1><%= choice.content %></h1>
-<% end %>
+<div id="question-box-<%= @question.id %>">
+  <% @question.choices.each do |choice| %>
+      <div id="choice-box-<%= choice.id %>">
+        <%= link_to question_choice_votes_path(@question, choice), method: 'post', remote: true do %><h1><%= choice.content %></h1><% end %>
+        <div class="count"><%= choice.votes.length %> votes</div>
+      </div>
+  <% end %>
+</div>

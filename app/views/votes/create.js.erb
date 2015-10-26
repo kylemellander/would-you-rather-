@@ -1,0 +1,5 @@
+$('#choice-box-<%= @choice.id %>').addClass('voted');
+<% @question.choices.each do |choice| %>
+ $('#choice-box-<%= choice.id %> .count').text('<%= choice.votes.length %> votes');
+ $('#choice-box-<%= choice.id %> a').removeAttr("href").removeAttr('data-method').removeAttr("data-remote");
+<% end %>
