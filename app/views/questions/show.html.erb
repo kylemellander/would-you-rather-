@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<h3>Would you Rather?</h3>
+<div class="row">
+  <% @question.choices.each_with_index do |choice, index| %>
+    <div class="col-sm-6">
+      <%= choice.content %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Edit', edit_question_path(@question), remote: true, id:"edit-link-#{@question.id}" %>
+ |
+<%= link_to 'Back', questions_path %>

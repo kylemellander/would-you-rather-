@@ -1,0 +1,27 @@
+<%= form_for @question, remote: true do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.fields_for :choices do |ff| %>
+    <% if ff.index != 0  %>
+      <div class="field or">OR</div>
+    <% end %>
+    <div class="field">
+      <%= ff.label :content, "Choice #{ff.index + 1}" %>
+      <%= ff.text_field :content %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<button onclick='hideNewForm()' id="cancel-button">Cancel</button>

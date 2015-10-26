@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Would you Rather?</h1>
+
+<div>
+  <%= link_to 'New Question', new_question_path, id: "new-question-link", remote: true %>
+</div>
+
+<div id="questions-list">
+<% @questions.each do |question| %>
+  <div>
+    <%= link_to question, remote: true, id:"show-question-#{question.id}" do %>
+      <% question.choices.each_with_index do |choice, index| %>
+        <% if index != 0 %>
+          OR
+        <% end %>
+        <%= choice.content %>
+      <% end %>
+    <% end %>
+    <%= link_to 'Edit', edit_question_path(question), remote: true, id:"edit-link-#{question.id}" %>
+    <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, id:"destroy-link-#{question.id}" %>
+  </div>
+<% end %>
+</div>

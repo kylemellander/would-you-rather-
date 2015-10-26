@@ -1,0 +1,6 @@
+if ($('#show-question-<%= @question.id %>').hasClass('to-hide')) {
+  $('#show-container-<%= @question.id %>').remove();
+  $('#show-question-<%= @question.id %>').removeClass('to-hide');
+} else {
+  $('#show-question-<%= @question.id %>').addClass('to-hide').after('<div id="show-container-<%= @question.id %>"><%= j render partial:"display", object: @question %></div>');
+}

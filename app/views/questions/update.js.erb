@@ -1,0 +1,2 @@
+$('#edit_question_<%= @question.id %>').remove();
+$('#edit-link-<%= @question.id %>').parent().show().empty().append('<%= j render @question %>');
