@@ -1,12 +1,17 @@
 <div>
-  <%= link_to @question, remote: true, id:"show-question-#{@question.id}" do %>
-    <% @question.choices.each_with_index do |choice, index| %>
-      <% if index != 0 %>
-        OR
+  <div id="show-container-<%= question.id %>">
+    <div id="question-box-<%= question.id %>">
+      <% question.choices.each_with_index do |choice, index| %>
+        <% if index != 0 %>
+          <div class="or">OR</div>
+        <% end %>
+        <div id="choice-box-<%= choice.id %>">
+          <%= link_to question_choice_votes_path(question, choice), method: 'post', remote: true do %><h1><%= choice.content %></h1><% end %>
+          <div class="count"><%= choice.votes.length %> votes</div>
+        </div>
       <% end %>
-      <%= choice.content %>
-    <% end %>
-  <% end %>
-  <%= link_to 'Edit', edit_question_path(question), remote: true, id:"edit-link-#{@question.id}" %>
+    </div>
+  </div>
+  <%= link_to 'Edit', edit_question_path(question), remote: true, id:"edit-link-#{question.id}" %>
   <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, id:"destroy-link-#{question.id}" %>
 </div>
