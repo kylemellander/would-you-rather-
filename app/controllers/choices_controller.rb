@@ -6,10 +6,6 @@ class ChoicesController < ApplicationController
     @choices = Choice.all
   end
 
-  # GET /choices/1
-  def show
-  end
-
   # GET /choices/new
   def new
     @choice = Choice.new
