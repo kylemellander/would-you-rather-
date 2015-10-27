@@ -3,18 +3,13 @@ class CommentsController < ApplicationController
 
   # GET /comments
   def index
-    @question = Question.find(params[:question_id])
-    @comments = Comment.all
     @comment = Comment.new
+    @question = Question.find(params[:question_id])
+    @comments = @question.comments
   end
 
   # GET /comments/1
   def show
-  end
-
-  # GET /comments/new
-  def new
-    @comment = Comment.new
   end
 
   # GET /comments/1/edit
@@ -26,29 +21,11 @@ class CommentsController < ApplicationController
     @question = Question.find(params[:question_id])
     @comment = Comment.new(comment_params)
     @comment.user = current_user
-    if @comment.save
-      respond_to do |format|
-        format.html {redirect_to @comment, notice: 'Comment was successfully created.'}
-        format.js
-      end
-    else
-      render :new
+    @comment.save
+    respond_to do |format|
+      format.html {redirect_to @comment, notice: 'Comment was successfully created.'}
+      format.js
     end
-  end
-
-  # PATCH/PUT /comments/1
-  def update
-    if @comment.update(comment_params)
-      redirect_to @comment, notice: 'Comment was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  # DELETE /comments/1
-  def destroy
-    @comment.destroy
-    redirect_to comments_url, notice: 'Comment was successfully destroyed.'
   end
 
   private

@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'paperclip'
 
 group :development do
   gem 'letter_opener'
@@ -32,4 +33,6 @@ group :test do
   gem 'simplecov', :require => false
   gem 'factory_girl_rails'
   gem 'rack_session_access'
+  gem 'database_cleaner'
+  gem 'poltergeist'
 end
