@@ -93,6 +93,8 @@ GEM
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (1.8.3)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -231,7 +233,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass (~> 3.3.5)
   byebug
   capybara
   coffee-rails
@@ -239,6 +241,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   jquery-rails
+  jquery-ui-rails
   launchy
   letter_opener
   paperclip
@@ -249,7 +252,7 @@ DEPENDENCIES
   rack_session_access
   rails
   rspec-rails
-  sass-rails
+  sass-rails (>= 3.2)
   seed_dump
   shoulda-matchers
   simplecov

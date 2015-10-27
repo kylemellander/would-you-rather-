@@ -1,0 +1,42 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+/*
+ *= require jquery-ui
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.voted {
+  background: rgba(0,0,0,0.4);
+}
+
+.ui-progressbar-value {
+  background: red;
+}
+
+.ui-widget-content {
+  background:green;
+}
+
+.progressbar {
+  clear:both;
+}
+
+.question-box.even {
+  background: #bebebe;
+}
+
+.question-box.odd {
+  background: #ebebeb;
+}
+.question-box {
+  text-align: center;
+  padding: 12px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+}
+
+.or {
+  margin-top: 140px;
+  font-size: 2.5em;
+}

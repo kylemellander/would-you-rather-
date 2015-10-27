@@ -1,4 +1,4 @@
-<%= form_for @question, remote: true do |f| %>
+<%= form_for @question, remote: true, authenticity_token: true do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -14,6 +14,10 @@
     <% if ff.index != 0  %>
       <div class="field or">OR</div>
     <% end %>
+    <div class="field">
+      <%= ff.label :img, "Image #{ff.index + 1}" %>
+      <%= ff.file_field :img %>
+    </div>
     <div class="field">
       <%= ff.label :content, "Choice #{ff.index + 1}" %>
       <%= ff.text_field :content %>

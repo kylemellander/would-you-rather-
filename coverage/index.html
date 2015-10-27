@@ -14,26 +14,26 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-10-27T14:04:39-07:00">2015-10-27T14:04:39-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-10-27T16:12:19-07:00">2015-10-27T16:12:19-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.57%</span></span>
+    (<span class="covered_percent"><span class="green">98.6%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.4
+         1.51
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>34</b> files in total.
-    <b>280</b> relevant lines. 
-    <span class="green"><b>276</b> lines covered</span> and
+    <b>286</b> relevant lines. 
+    <span class="green"><b>282</b> lines covered</span> and
     <span class="red"><b>4</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -133,9 +133,9 @@
       <tr>
         <td class="strong"><a href="#4a2b59b2e43649938f026cb5c87f10192fe4d289" class="src_link" title="app/models/choice.rb">app/models/choice.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>4</td>
-        <td>3</td>
-        <td>3</td>
+        <td>7</td>
+        <td>5</td>
+        <td>5</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -153,11 +153,11 @@
       <tr>
         <td class="strong"><a href="#7a9f76a655d969738b8a71324237585df81c2be8" class="src_link" title="app/models/question.rb">app/models/question.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>7</td>
-        <td>5</td>
-        <td>5</td>
+        <td>15</td>
+        <td>9</td>
+        <td>9</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>2.0</td>
       </tr>
       
       <tr>
@@ -167,7 +167,7 @@
         <td>11</td>
         <td>11</td>
         <td>0</td>
-        <td>4.5</td>
+        <td>6.7</td>
       </tr>
       
       <tr>
@@ -1461,8 +1461,8 @@
     <h3>app/models/choice.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1489,6 +1489,24 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  has_attached_file :img, styles: { medium: &quot;300x300#&quot;, thumb: &quot;100x100&gt;&quot; }, default_url: &quot;/download.png&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates_attachment_content_type :img, content_type: /\Aimage\/.*\Z/</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">end</code>
@@ -1545,8 +1563,8 @@
     <h3>app/models/question.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>5</b> relevant lines. 
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>9</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1591,6 +1609,54 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def percent</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="9">
+          <span class="hits">6</span>
+          
+          <code class="ruby">    if choices[0].votes.length == 0 &amp;&amp; choices[1].votes.length == 0</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="10">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      false</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      100*choices[0].votes.length / (choices[0].votes.length + choices[1].votes.length)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby">end</code>
@@ -1674,14 +1740,14 @@
           <code class="ruby">  def has_voted?(question)</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="11">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="17" data-linenumber="11">
+          <span class="hits">17</span>
           
           <code class="ruby">    question.choices.each do |choice|</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="12">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="32" data-linenumber="12">
+          <span class="hits">32</span>
           
           <code class="ruby">      choice.votes.each do |vote|</code>
         </li>
@@ -1716,8 +1782,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="18">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="16" data-linenumber="18">
+          <span class="hits">16</span>
           
           <code class="ruby">    false</code>
         </li>
@@ -5373,7 +5439,7 @@
         <li class="covered" data-hits="1" data-linenumber="79">
           <span class="hits">1</span>
           
-          <code class="ruby">    fill_in &quot;Content&quot;, with: &quot;hello&quot;</code>
+          <code class="ruby">    fill_in &quot;Add a Comment&quot;, with: &quot;hello&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="80">

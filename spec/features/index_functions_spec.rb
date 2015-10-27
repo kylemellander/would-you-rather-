@@ -76,7 +76,7 @@ describe 'the add a comment process' do
     visit root_path
     click_link "boo"
     click_link "Show Comments"
-    fill_in "Content", with: "hello"
+    fill_in "Add a Comment", with: "hello"
     click_on "Create Comment"
     expect(page).to have_content "hello"
   end
