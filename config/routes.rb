@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :choices do
       resources :votes
     end
+    resources :comments
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

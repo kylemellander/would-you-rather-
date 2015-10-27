@@ -3,3 +3,4 @@ $('#choice-box-<%= @choice.id %>').addClass('voted');
  $('#choice-box-<%= choice.id %> .count').text('<%= choice.votes.length %> votes');
  $('#choice-box-<%= choice.id %> a').removeAttr("href").removeAttr('data-method').removeAttr("data-remote");
 <% end %>
+$('#question-box-<%= @question.id %>').append('<%= link_to "Show Comments", question_comments_path(@question), remote: true, id: "show-comments-link-#{@question.id}" %>')

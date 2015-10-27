@@ -1,0 +1,8 @@
+<h4>Comments</h4>
+<div id="comment-box-<%= @question.id %>">
+  <% @question.comments.each do |comment| %>
+    <%= comment.content %>
+  <% end %>
+</div>
+
+<%= render 'form' %>
