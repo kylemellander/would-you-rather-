@@ -16,14 +16,27 @@
             <div class="or">OR</div>
           <% end %>
           <div id="choice-box-<%= choice.id %>">
-            <%= link_to question_choice_votes_path(question, choice), method: 'post', remote: true do %><h1><%= choice.content %></h1><% end %>
+
+            <% if user_signed_in? && !current_user.has_voted?(question) %>
+              <%= link_to question_choice_votes_path(question, choice), method: 'post', remote: true do %><h1><%= choice.content %></h1><% end %>
+            <% else %>
+              <h1><%= choice.content %></h1>
+            <% end %>
             <div class="count"><%= choice.votes.length %> votes</div>
           </div>
         <% end %>
+        <% if !user_signed_in? %>
+          <%= link_to 'Please sign in to vote', new_user_session_path %>
+        <% elsif current_user.has_voted?(question) %>
+          Thanks for voting!
+          <%= link_to "Show Comments", question_comments_path(question), remote: true, id: "show-comments-link-#{question.id}" %>
+        <% end %>
       </div>
     </div>
-    <%= link_to 'Edit', edit_question_path(question), remote: true, id:"edit-link-#{question.id}" %>
-    <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, id:"destroy-link-#{question.id}" %>
+    <% if user_signed_in? && current_user.id == question.user_id %>
+      <%= link_to 'Edit', edit_question_path(question), remote: true, id:"edit-link-#{question.id}" %>
+      <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, id:"destroy-link-#{question.id}" %>
+    <% end %>
   </div>
 <% end %>
 </div>

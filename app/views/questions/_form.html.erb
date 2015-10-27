@@ -24,4 +24,6 @@
   </div>
 <% end %>
 
-<button onclick='hideNewForm()' id="cancel-button">Cancel</button>
+<% if @question.id == nil %>
+  <button onclick='hideNewForm()' id="cancel-button">Cancel</button>
+<% end %>

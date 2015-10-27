@@ -25,6 +25,7 @@ class CommentsController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @comment = Comment.new(comment_params)
+    @comment.user = current_user
     if @comment.save
       respond_to do |format|
         format.html {redirect_to @comment, notice: 'Comment was successfully created.'}
