@@ -28,4 +28,8 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'simplecov', :require => false
+  gem 'factory_girl_rails'
+  gem 'rack_session_access'
 end
